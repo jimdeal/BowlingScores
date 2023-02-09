@@ -1,2 +1,9 @@
 /Bowling/.idea/*
 /Bowling/pom.xml
+/Bowling/src/main/java/BowlingScore/BowlingScore.java
+/Bowling/src/test/java/BowlingScore/BowlingScoreTest.java
+/Bowling/target/classes/BowlingScore/BowlingScore.class
+/Bowling/target/classes/BowlingScore/BowlingScore$FrameInfo.class
+/Bowling/target/classes/BowlingScore/BowlingScore$FrameType.class
+/Bowling/target/classes/org/example/Main.class
+/Bowling/target/test-classes/BowlingScore/BowlingScoreTest.class
