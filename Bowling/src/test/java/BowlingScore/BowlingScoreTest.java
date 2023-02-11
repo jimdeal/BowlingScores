@@ -765,4 +765,75 @@ class BowlingScoreTest {
         assertEquals(33, bowlingTwo.getCurrentScore());
     }
 
+    @Test
+    public void ScoreStrikeSpareGame6(){
+        BowlingScore bowlingTwo = new BowlingScore();
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(9,1);
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(10,0); //
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(9,1);
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddBonusThrow(2);
+        bowlingTwo.AddBonusThrow(8);
+        assertEquals(10, bowlingTwo.getNumberOfFramesPlayed());
+        assertEquals(240, bowlingTwo.getCurrentScore());
+    }
+
+    @Test
+    public void ScoreStrikeSpareGame7(){
+        BowlingScore bowlingTwo = new BowlingScore();
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(9,1);
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(10,0); //
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(9,1);
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(1,0);
+        assertEquals(10, bowlingTwo.getNumberOfFramesPlayed());
+        assertEquals(201, bowlingTwo.getCurrentScore());
+    }
+
+    @Test
+    public void ScoreStrikeSpareGame8(){
+        BowlingScore bowlingTwo = new BowlingScore();
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(9,1);
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(1,0); //
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(9,1);
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(1,0);
+        assertEquals(10, bowlingTwo.getNumberOfFramesPlayed());
+        assertEquals(154, bowlingTwo.getCurrentScore());
+    }
+
+    @Test
+    public void ScoreStrikeSpareGame9(){
+        BowlingScore bowlingTwo = new BowlingScore();
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(9,1);
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(1,0); //
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(9,1);
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(10,0);
+        bowlingTwo.AddFrameToGame(9,1);
+        bowlingTwo.AddBonusThrow(1);
+        assertEquals(10, bowlingTwo.getNumberOfFramesPlayed());
+        assertEquals(181, bowlingTwo.getCurrentScore());
+    }
+
 }

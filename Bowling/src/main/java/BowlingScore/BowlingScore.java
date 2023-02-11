@@ -129,7 +129,91 @@ public class BowlingScore {
                 }
             } else if (frame1.frameType == FrameType.Spare) {
 
-                if (currentGame - 1 >= 0) {
+                if (currentGame - 2 >= 0) {
+                    BowlingScore.FrameInfo frame2 = game.get(currentGame - 2);
+
+                    if (frame2.frameType == FrameType.Strike) {
+                        BowlingScore.FrameInfo frame3 = game.get(currentGame - 1);
+//
+                        if (frame3.frameType == FrameType.Strike) {
+
+                            if (frame1.frameType == FrameType.Normal){
+
+                            } else if(frame1.frameType == FrameType.Spare){
+                                int prevPrevScore = currentScoresByFrame.get(currentGame - 2);
+                                int currentFrameFirstScore = frame1.first;
+                                currentScoresByFrame.set(currentGame - 2, currentFrameFirstScore + prevPrevScore);
+
+                                int prevScore = currentScoresByFrame.get(currentGame - 1);
+                                currentFrameFirstScore = frame1.first + frame1.second;
+                                currentScoresByFrame.set(currentGame - 1, currentFrameFirstScore + prevScore);
+
+                                currentScoresByFrame.add(currentGame, currentFrameFirstScore);
+
+                            } else {
+                                int prevPrevScore = currentScoresByFrame.get(currentGame - 2);
+                                int currentFrameFirstScore = frame1.first;
+                                currentScoresByFrame.set(currentGame - 2, currentFrameFirstScore + prevPrevScore);
+
+                                int prevScore = currentScoresByFrame.get(currentGame - 1);
+                                currentFrameFirstScore = frame1.first + frame1.second;
+                                currentScoresByFrame.set(currentGame - 1, currentFrameFirstScore + prevScore);
+
+                                currentScoresByFrame.add(currentGame, currentFrameFirstScore);
+
+                            }
+
+
+                        } else if (frame3.frameType == FrameType.Normal) {
+                            int currentFrameFirstScore = frame1.first + frame1.second;
+                            currentScoresByFrame.add(currentGame, currentFrameFirstScore);
+                        } else {
+                            if (frame1.frameType == FrameType.Normal) {
+                                int prevScore = currentScoresByFrame.get(currentGame - 1);
+                                prevScore += frame1.first;
+                                currentScoresByFrame.set(currentGame - 1, prevScore);
+
+                                int currentFrameScore = frame1.first + frame1.second;
+                                currentScoresByFrame.add(currentGame, currentFrameScore);
+                            } else {
+                                int prevPrevScore = currentScoresByFrame.get(currentGame - 2);
+                                int currentFrameFirstScore = frame1.first;
+                                currentScoresByFrame.set(currentGame - 2, currentFrameFirstScore + prevPrevScore);
+
+                                int prevScore = currentScoresByFrame.get(currentGame - 1);
+                                currentFrameFirstScore = frame1.first + frame1.second;
+                                currentScoresByFrame.set(currentGame - 1, currentFrameFirstScore + prevScore);
+
+                            }
+
+                        }
+//
+                    } else if (frame2.frameType == FrameType.Normal) {
+                        BowlingScore.FrameInfo frame3 = game.get(currentGame - 1);
+                        if (frame3.frameType == FrameType.Strike) {
+                            int prevScore = currentScoresByFrame.get(currentGame - 1);
+                            prevScore += frame1.first + frame1.second;
+                            currentScoresByFrame.set(currentGame - 1,  prevScore);
+
+
+
+                        }
+//
+
+                        int currentFrameScore = frame1.first + frame1.second;
+                        currentScoresByFrame.add(currentGame, currentFrameScore);
+
+                    }else { // spare
+                        int prevScore = currentScoresByFrame.get(currentGame - 1);
+                        int currentFrameFirstScore = frame1.first;
+                        currentScoresByFrame.set(currentGame - 1, currentFrameFirstScore + prevScore);
+                        int currentFrameScore = frame1.first + frame1.second;
+                        currentScoresByFrame.add(currentGame, currentFrameScore);
+
+                    }
+
+
+                } else if (currentGame - 1 >= 0) {
                     BowlingScore.FrameInfo frame2 = game.get(currentGame - 1);
                     if (frame2.frameType == FrameType.Spare) {
                         int prevScore = currentScoresByFrame.get(currentGame - 1);
@@ -211,8 +295,22 @@ public class BowlingScore {
                                 currentScoresByFrame.add(currentGame, currentFrameFirstScore);
                             }
                         } else { // spare
+                            int prevScore = currentScoresByFrame.get(currentGame - 1);
+                            int currentFrameFirstScore = frame1.first;
+                            currentScoresByFrame.set(currentGame - 1, currentFrameFirstScore + prevScore);
+
+                            currentFrameFirstScore = frame1.first + frame1.second;
+                            currentScoresByFrame.add(currentGame, currentFrameFirstScore);
 
                         }
+                    } else { // spare
+                        int prevScore = currentScoresByFrame.get(currentGame - 1);
+                        int currentFrameFirstScore = frame1.first;
+                        currentScoresByFrame.set(currentGame - 1, currentFrameFirstScore + prevScore);
+
+                        currentFrameFirstScore = frame1.first + frame1.second;
+                        currentScoresByFrame.add(currentGame, currentFrameFirstScore);
+
                     }
 
                 } else if (currentGame - 1 >= 0) {
